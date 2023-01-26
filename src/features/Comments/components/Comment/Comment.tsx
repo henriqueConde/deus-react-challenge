@@ -1,9 +1,9 @@
-/* eslint-disable react/no-danger */
 import { CommentAPI } from '@models/Comment';
 import { MetaInfo } from '@components/MetaInfo';
 import formatDate from '@utils/formatDate';
 import { useReplies } from '@features/Comments/hooks/useReplies';
 import CommentActionsStateProvider from '@features/Comments/context/CommentActionsStateContext';
+import { SanitizeHtml } from '@components/SanitizeHtml';
 import { CommentsList } from '../CommentsList';
 import CommentActions from '../CommentActions/CommentActions';
 import CommentsReplyForms from '../CommentsReplyForms/CommentsReplyForms';
@@ -32,7 +32,7 @@ const Comment = ({ user, content, date, id, data, parentId }: CommentProps) => {
           {user} - {commentDate}
         </MetaInfo>
       </S.CommentHeader>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <SanitizeHtml content={content} />
       <CommentActionsStateProvider>
         <CommentActions
           hasReplies={hasReplies}

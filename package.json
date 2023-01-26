@@ -16,8 +16,12 @@
     "@hookform/resolvers": "^2.9.10",
     "@styled-icons/material-outlined": "^10.46.0",
     "axios": "^1.2.2",
+    "dompurify": "^2.4.3",
     "i18next": "^22.1.5",
+    "install": "^0.13.0",
     "joi": "^17.7.0",
+    "json-server": "^0.14.0",
+    "npm": "^9.4.0",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -26,13 +30,13 @@
     "react-query": "^3.39.2",
     "react-router-dom": "^6.4.5",
     "styled-components": "^5.3.6",
-    "styled-media-query": "^2.1.2",
-    "json-server": "^0.14.0"
+    "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/dompurify": "^2.4.0",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@types/styled-components": "^5.1.26",

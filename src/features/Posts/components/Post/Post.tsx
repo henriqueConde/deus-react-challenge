@@ -1,7 +1,7 @@
-/* eslint-disable react/no-danger */
 import { useGetPost } from '@features/Posts/hooks/useGetPost';
 import useGetPostId from '@utils/hooks/useGetPostId';
 import { Loading } from '@components/Loading';
+import { SanitizeHtml } from '@components/SanitizeHtml';
 import * as S from './styles';
 
 const Post = () => {
@@ -13,7 +13,7 @@ const Post = () => {
       {!!post && (
         <>
           <h2>{post.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <SanitizeHtml content={post.content} />
         </>
       )}
     </S.Wrapper>
