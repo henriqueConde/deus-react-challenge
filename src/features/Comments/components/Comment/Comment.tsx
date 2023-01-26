@@ -3,9 +3,9 @@ import { CommentAPI } from '@models/Comment';
 import { MetaInfo } from '@components/MetaInfo';
 import formatDate from '@utils/formatDate';
 import { useReplies } from '@features/Comments/hooks/useReplies';
+import CommentActionsStateProvider from '@features/Comments/context/CommentActionsStateContext';
 import { CommentsList } from '../CommentsList';
 import CommentActions from '../CommentActions/CommentActions';
-import { useCommentContext } from '../../context/CommentContext';
 import CommentsReplyForms from '../CommentsReplyForms/CommentsReplyForms';
 import * as S from './style';
 
@@ -19,10 +19,11 @@ export type CommentProps = {
 };
 
 const Comment = ({ user, content, date, id, data, parentId }: CommentProps) => {
-  const { replies, hasReplies } = useReplies(data, id);
+  const { replies, hasReplies, showReplies, handleSowReplies } = useReplies(
+    data,
+    id
+  );
   const { result: commentDate } = formatDate(date, 'DD/MM/YYYY');
-
-  const { showReplies } = useCommentContext();
 
   return (
     <S.Wrapper>
@@ -32,13 +33,19 @@ const Comment = ({ user, content, date, id, data, parentId }: CommentProps) => {
         </MetaInfo>
       </S.CommentHeader>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-      <CommentActions hasReplies={hasReplies} />
-      <CommentsReplyForms
-        content={content}
-        user={user}
-        id={id}
-        parentId={parentId}
-      />
+      <CommentActionsStateProvider>
+        <CommentActions
+          hasReplies={hasReplies}
+          handleShowReplies={handleSowReplies}
+          showReplies={showReplies}
+        />
+        <CommentsReplyForms
+          content={content}
+          user={user}
+          id={id}
+          parentId={parentId}
+        />
+      </CommentActionsStateProvider>
       {showReplies && hasReplies && (
         <CommentsList comments={replies} data={data} />
       )}

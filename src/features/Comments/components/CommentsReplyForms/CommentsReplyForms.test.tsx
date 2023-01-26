@@ -1,8 +1,8 @@
 import { describe, it, vi } from 'vitest';
 import { render, screen } from '@utils/customTestSetup';
-import CommentStateProvider from '@features/Comments/context/CommentContext';
+import CommentActionsStateProvider from '@features/Comments/context/CommentActionsStateContext';
 import CommentsReplyForms from './CommentsReplyForms';
-import * as CommentContext from '../../context/CommentContext';
+import * as CommentActionsStateContext from '../../context/CommentActionsStateContext';
 
 const mockProps = {
   id: 1,
@@ -11,18 +11,18 @@ const mockProps = {
   user: 'Joao',
 };
 
-const contextValues = CommentContext.initialState;
+const contextValues = CommentActionsStateContext.initialState;
 
 describe('<CommentsReplyForms />', () => {
   it('should render create comment form properly', () => {
-    vi.spyOn(CommentContext, 'useCommentContext').mockImplementation(() => ({
+    vi.spyOn(CommentActionsStateContext, 'useCommentActionsStateContext').mockImplementation(() => ({
       ...contextValues,
       showCommentForm: true,
     }));
     render(
-      <CommentStateProvider>
+      <CommentActionsStateProvider>
         <CommentsReplyForms {...mockProps} />
-      </CommentStateProvider>
+      </CommentActionsStateProvider>
     );
     const commentLabel = screen.getByLabelText('Make a Comment');
     const textArea = screen.getByTestId('textarea');
@@ -40,14 +40,14 @@ describe('<CommentsReplyForms />', () => {
   });
 
   it('should render edit comment form properly', () => {
-    vi.spyOn(CommentContext, 'useCommentContext').mockImplementation(() => ({
+    vi.spyOn(CommentActionsStateContext, 'useCommentActionsStateContext').mockImplementation(() => ({
       ...contextValues,
       showEditCommentForm: true,
     }));
     render(
-      <CommentStateProvider>
+      <CommentActionsStateProvider>
         <CommentsReplyForms {...mockProps} />
-      </CommentStateProvider>
+      </CommentActionsStateProvider>
     );
     const commentLabel = screen.getByLabelText('Make a Comment');
     const textArea = screen.getByTestId('textarea');
@@ -65,13 +65,13 @@ describe('<CommentsReplyForms />', () => {
   });
 
   it('should not render comment actions form if not allowed', () => {
-    vi.spyOn(CommentContext, 'useCommentContext').mockImplementation(() => ({
+    vi.spyOn(CommentActionsStateContext, 'useCommentActionsStateContext').mockImplementation(() => ({
       ...contextValues,
     }));
     render(
-      <CommentStateProvider>
+      <CommentActionsStateProvider>
         <CommentsReplyForms {...mockProps} />
-      </CommentStateProvider>
+      </CommentActionsStateProvider>
     );
     const commentLabel = screen.queryByLabelText('Make a Comment');
     const textArea = screen.queryByTestId('textarea');

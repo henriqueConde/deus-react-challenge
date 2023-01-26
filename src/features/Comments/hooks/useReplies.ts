@@ -1,10 +1,15 @@
 import { mapToComments } from '@utils/mappers/mapToComments';
 import { CommentAPI, CommentData } from '@models/Comment';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useReplies = (commentArr: CommentAPI[], id: number) => {
+  const [showReplies, setShowReplies] = useState(false);
   const [replies, setReplies] = useState<CommentData[] | null>(null);
   const [hasReplies, setHasReplies] = useState(false);
+
+  const handleSowReplies = useCallback(() => {
+    setShowReplies(!showReplies);
+  }, [showReplies]);
 
   useEffect(() => {
     const theReplies = mapToComments(
@@ -14,5 +19,5 @@ export const useReplies = (commentArr: CommentAPI[], id: number) => {
     setHasReplies(theReplies.length > 0);
   }, [commentArr, id]);
 
-  return { replies, hasReplies };
+  return { replies, hasReplies, showReplies, handleSowReplies };
 };

@@ -9,14 +9,14 @@ type EditCommentFetchProps = {
   id: number;
   parentId?: number | null;
   initValues: CreateCommentData;
-  setShowEditCommentForm: (arg: boolean) => void;
+  handleHideEditCommentForm: () => void;
 };
 
 const EditCommentFetch = ({
   id,
   parentId = null,
   initValues,
-  setShowEditCommentForm,
+  handleHideEditCommentForm,
 }: EditCommentFetchProps) => {
   const { postId } = useGetPostId();
   const { mutate, isLoading, data, isError } = useEditComment();
@@ -38,7 +38,7 @@ const EditCommentFetch = ({
     };
 
     await mutate(submitComment);
-    setShowEditCommentForm(false);
+    handleHideEditCommentForm();
   };
 
   return (

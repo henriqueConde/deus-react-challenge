@@ -1,21 +1,33 @@
 import { Button } from '@components/Button';
 import { useTranslation } from 'react-i18next';
-import { useCommentContext } from '../../context/CommentContext';
+import useCommentsTranslations from '@features/Comments/hooks/useCommentsTranslations';
+import { useCommentActionsStateContext } from '../../context/CommentActionsStateContext';
 import * as S from './styles';
 
 type CommentActionsProps = {
   hasReplies: boolean;
+  handleShowReplies: () => void;
+  showReplies: boolean;
 };
 
-const CommentActions = ({ hasReplies }: CommentActionsProps) => {
+const CommentActions = ({
+  hasReplies,
+  handleShowReplies,
+  showReplies,
+}: CommentActionsProps) => {
   const {
-    handleReplyClick,
     handleMakeCommentClick,
     handleEditCommentClick,
-    editBtnText,
-    replyBtnText,
-    displayRepliesBtnText,
-  } = useCommentContext();
+    showCommentForm,
+    showEditCommentForm,
+  } = useCommentActionsStateContext();
+
+  const { editBtnText, replyBtnText, displayRepliesBtnText } =
+    useCommentsTranslations({
+      showCommentForm,
+      showEditCommentForm,
+      showReplies,
+    });
 
   const { t } = useTranslation();
 
@@ -25,7 +37,7 @@ const CommentActions = ({ hasReplies }: CommentActionsProps) => {
         <S.ShowRepliesBtn
           isSecondary
           type="button"
-          onClick={handleReplyClick}
+          onClick={handleShowReplies}
           size="small"
         >
           {t(displayRepliesBtnText)}

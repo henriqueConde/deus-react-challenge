@@ -8,11 +8,11 @@ import CreateComment from './CreateComment';
 
 type CreateCommentFetchProps = {
   parentId?: number | null;
-  setShowCommentForm?: (arg: boolean) => void;
+  handleHideCommentForm?: () => void;
 };
 
 const CreateCommentFetch = ({
-  setShowCommentForm,
+  handleHideCommentForm,
   parentId = null,
 }: CreateCommentFetchProps) => {
   const { postId } = useGetPostId();
@@ -37,7 +37,7 @@ const CreateCommentFetch = ({
 
     await mutate(newCommentData);
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    !!setShowCommentForm && setShowCommentForm(false);
+    !!handleHideCommentForm && handleHideCommentForm();
   };
 
   const initialValues: CreateCommentData = {

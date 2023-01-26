@@ -1,6 +1,6 @@
 import { CreateCommentFetch } from '../CreateComment';
 import EditCommentFetch from '../EditComment/EditCommentFetch';
-import { useCommentContext } from '../../context/CommentContext';
+import { useCommentActionsStateContext } from '../../context/CommentActionsStateContext';
 
 type CommentsReplyFormsProps = {
   id: number;
@@ -22,16 +22,16 @@ const CommentsReplyForms = ({
   const {
     showCommentForm,
     showEditCommentForm,
-    setShowCommentForm,
-    setShowEditCommentForm,
-  } = useCommentContext();
+    handleHideCommentForm,
+    handleHideEditCommentForm,
+  } = useCommentActionsStateContext();
   return (
     <>
       {showCommentForm && (
         <CreateCommentFetch
           data-testid="create-comment-form"
           parentId={id}
-          setShowCommentForm={setShowCommentForm}
+          handleHideCommentForm={handleHideCommentForm}
         />
       )}
       {showEditCommentForm && (
@@ -40,7 +40,7 @@ const CommentsReplyForms = ({
           initValues={initValues}
           id={id}
           parentId={parentId}
-          setShowEditCommentForm={setShowEditCommentForm}
+          handleHideEditCommentForm={handleHideEditCommentForm}
         />
       )}
     </>
