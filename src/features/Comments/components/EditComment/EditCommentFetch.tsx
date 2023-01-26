@@ -25,7 +25,7 @@ const EditCommentFetch = ({
     data,
     error: isError ? 'Failed to edit comment' : '',
   };
-  const handleSubmitData = async (commentData: CreateCommentData) => {
+  const handleSubmitData = (commentData: CreateCommentData) => {
     const submitComment: SubmitEditComment = {
       commentId: id as number,
       options: {
@@ -37,7 +37,7 @@ const EditCommentFetch = ({
       },
     };
 
-    await mutate(submitComment);
+    mutate(submitComment);
     handleHideEditCommentForm();
   };
 

@@ -22,7 +22,7 @@ const CreateCommentFetch = ({
     data,
     error: isError ? 'Failed to create comment' : '',
   };
-  const handleSubmitData = async (commentData: Partial<CreateCommentData>) => {
+  const handleSubmitData = (commentData: Partial<CreateCommentData>) => {
     const submitComment: NewCreateCommentOptions = {
       parent_id: parentId,
       date: new Date(),
@@ -35,8 +35,7 @@ const CreateCommentFetch = ({
       options: submitComment,
     };
 
-    await mutate(newCommentData);
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    mutate(newCommentData);
     !!handleHideCommentForm && handleHideCommentForm();
   };
 

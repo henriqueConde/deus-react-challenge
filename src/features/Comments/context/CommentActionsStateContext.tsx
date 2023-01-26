@@ -1,11 +1,5 @@
+import { createContext, PropsWithChildren, useContext, useMemo } from 'react';
 import { CommentActionsStateContext as CommentActionsStateModel } from '@models/CommentActionsStateContext';
-import {
-  createContext,
-  PropsWithChildren,
-  useContext,
-  useMemo,
-  useEffect,
-} from 'react';
 import useCommentActions from '../hooks/useCommentActions';
 
 export const initialState: CommentActionsStateModel = {
@@ -32,18 +26,6 @@ const CommentActionsStateProvider = ({ children }: PropsWithChildren) => {
     showCommentForm,
     showEditCommentForm,
   } = useCommentActions();
-
-  useEffect(() => {
-    if (showCommentForm) {
-      handleHideEditCommentForm();
-    }
-  }, [handleHideEditCommentForm, showCommentForm]);
-
-  useEffect(() => {
-    if (showEditCommentForm) {
-      handleHideCommentForm();
-    }
-  }, [handleHideCommentForm, showEditCommentForm]);
 
   const contextValues = useMemo(() => {
     return {

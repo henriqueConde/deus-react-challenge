@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const useCommentActions = () => {
   const [showCommentForm, setShowCommentForm] = useState(false);
@@ -19,6 +19,18 @@ const useCommentActions = () => {
   const handleEditCommentClick = useCallback(() => {
     setShowEditCommentForm(!showEditCommentForm);
   }, [showEditCommentForm]);
+
+  useEffect(() => {
+    if (showCommentForm) {
+      handleHideEditCommentForm();
+    }
+  }, [handleHideEditCommentForm, showCommentForm]);
+
+  useEffect(() => {
+    if (showEditCommentForm) {
+      handleHideCommentForm();
+    }
+  }, [handleHideCommentForm, showEditCommentForm]);
 
   return {
     handleMakeCommentClick,

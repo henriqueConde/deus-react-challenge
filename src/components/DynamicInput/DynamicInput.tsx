@@ -31,7 +31,6 @@ const DynamicInput = ({
     const newValue = e.currentTarget.value;
     setInputValue(newValue);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     !!onInputChange && onInputChange(newValue);
   };
 

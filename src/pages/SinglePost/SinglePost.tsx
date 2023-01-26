@@ -1,22 +1,15 @@
+import { Navigate } from 'react-router-dom';
 import { CommentsList } from '@features/Comments/components/CommentsList';
 import { CreateCommentFetch } from '@features/Comments/components/CreateComment';
-import { useGetComments } from '@features/Comments/hooks/useGetComments';
-import Post from '@features/Posts/components/Post/Post';
-import { CommentAPI, CommentData } from '@models/Comment';
-import useGetPostId from '@utils/hooks/useGetPostId';
-import { mapToComments } from '@utils/mappers/mapToComments';
-import { Navigate } from 'react-router-dom';
+import { Post } from '@features/Posts/components/Post';
+import { CommentData } from '@models/Comment';
 import useValidateUrlPath from '@utils/hooks/useValidateUrlPath';
+import useCommentsList from '@features/Comments/hooks/useCommentsList';
 import * as S from './styles';
 
 const SinglePost = () => {
-  const { postId } = useGetPostId();
-  const { data } = useGetComments(postId as number);
-  const comments = data && mapToComments(data as CommentAPI[]);
-  const commentsFinal = comments?.filter((com) => com?.parentId === null);
-
+  const { comments, data } = useCommentsList();
   const { hasValidUrl } = useValidateUrlPath();
-
   return (
     <S.Wrapper>
       {!hasValidUrl ? (
@@ -25,7 +18,7 @@ const SinglePost = () => {
         <>
           <Post />
           <CreateCommentFetch />
-          <CommentsList comments={commentsFinal as CommentData[]} data={data} />
+          <CommentsList comments={comments as CommentData[]} data={data} />
         </>
       )}
     </S.Wrapper>

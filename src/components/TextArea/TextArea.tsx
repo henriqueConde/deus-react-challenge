@@ -24,7 +24,6 @@ const TextArea = ({
     const newValue = e.currentTarget.value;
     setTextAreaValue(newValue);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     !!onInputChange && onInputChange(newValue);
   };
 

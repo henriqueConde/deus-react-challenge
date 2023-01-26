@@ -31,7 +31,7 @@ const Dropdown = ({
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = e.target.value;
     setValue(newValue);
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+
     !!onInputChange && onInputChange(name, newValue);
   };
 

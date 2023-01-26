@@ -3,10 +3,15 @@ import * as S from './styles';
 
 type PostsViewProps = {
   isGridView: boolean;
-  setIsGridView: (arg: boolean) => void;
+  handleGridView: () => void;
+  handleListView: () => void;
 };
 
-const PostsView = ({ isGridView, setIsGridView }: PostsViewProps) => {
+const PostsView = ({
+  isGridView,
+  handleGridView,
+  handleListView,
+}: PostsViewProps) => {
   return (
     <S.Wrapper data-testid={isGridView ? 'grid-view' : 'list-view'}>
       {!isGridView ? (
@@ -17,16 +22,12 @@ const PostsView = ({ isGridView, setIsGridView }: PostsViewProps) => {
               style={{ width: '16px', height: '14px', marginBottom: '2px' }}
             />
           }
-          onClick={() => setIsGridView(true)}
+          onClick={handleGridView}
         >
           Grid
         </S.IconButton>
       ) : (
-        <S.IconButton
-          size="small"
-          icon={<List />}
-          onClick={() => setIsGridView(false)}
-        >
+        <S.IconButton size="small" icon={<List />} onClick={handleListView}>
           List
         </S.IconButton>
       )}

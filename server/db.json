@@ -619,6 +619,54 @@
       "content": "gsdgsdfg",
       "postId": "1",
       "id": 29
+    },
+    {
+      "postId": 20,
+      "parent_id": null,
+      "date": "2023-01-26T23:24:27.672Z",
+      "user": "Rachel",
+      "content": "This is a comment 2",
+      "id": 30
+    },
+    {
+      "postId": 20,
+      "parent_id": 30,
+      "date": "2023-01-27T00:03:05.687Z",
+      "user": "Aidan",
+      "content": "This is a reply 2",
+      "id": 31
+    },
+    {
+      "parent_id": 31,
+      "date": "2023-01-26T23:24:59.665Z",
+      "user": "Noah",
+      "content": "This is a reply of a reply",
+      "postId": "20",
+      "id": 32
+    },
+    {
+      "parent_id": null,
+      "date": "2023-01-27T00:13:37.609Z",
+      "user": "dsafasdf",
+      "content": "asdfdasf",
+      "postId": "20",
+      "id": 33
+    },
+    {
+      "parent_id": null,
+      "date": "2023-01-27T00:14:06.506Z",
+      "user": "asdfadsf",
+      "content": "asdfasdf",
+      "postId": "20",
+      "id": 34
+    },
+    {
+      "parent_id": null,
+      "date": "2023-01-27T00:14:11.186Z",
+      "user": "reerer",
+      "content": "ddfd",
+      "postId": "20",
+      "id": 35
     }
   ]
 }

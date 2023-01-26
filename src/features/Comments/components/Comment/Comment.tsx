@@ -19,12 +19,11 @@ export type CommentProps = {
 };
 
 const Comment = ({ user, content, date, id, data, parentId }: CommentProps) => {
-  const { replies, hasReplies, showReplies, handleSowReplies } = useReplies(
-    data,
-    id
-  );
+  const { replies, hasReplies, showReplies, handleSowReplies } = useReplies({
+    commentArr: data,
+    id,
+  });
   const { result: commentDate } = formatDate(date, 'DD/MM/YYYY');
-
   return (
     <S.Wrapper>
       <S.CommentHeader>

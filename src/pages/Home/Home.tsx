@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { PostsList } from '@features/Posts/components/PostsList';
-import { FC, useState } from 'react';
 import { PostsView } from '@components/PostsView';
+import useLayoutView from './hooks/useLayoutView';
 import * as S from './styles';
 
-const Home: FC = () => {
+const Home = () => {
   const { t } = useTranslation();
-  const [isGridView, setIsGridView] = useState(true);
+  const { isGridView, handleGridView, handleListView } = useLayoutView();
   return (
     <S.Wrapper>
       <S.TitleWrapper>
@@ -14,9 +14,12 @@ const Home: FC = () => {
           <h2>{t('home.main.title')}</h2>
           <p>{t('home.greeting')}</p>
         </div>
-        <PostsView isGridView={isGridView} setIsGridView={setIsGridView} />
+        <PostsView
+          isGridView={isGridView}
+          handleGridView={handleGridView}
+          handleListView={handleListView}
+        />
       </S.TitleWrapper>
-
       <PostsList isGridView={isGridView} />
     </S.Wrapper>
   );

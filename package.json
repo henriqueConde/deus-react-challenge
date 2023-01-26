@@ -10,7 +10,7 @@
     "test": "vitest run",
     "test:w": "vitest",
     "generate": "plop --plopfile generators/plopfile.mjs",
-    "api": "json-server --watch server/db.json --port 9000"
+    "server": "json-server --watch server/db.json --port 9000"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
