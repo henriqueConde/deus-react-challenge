@@ -1,0 +1,46 @@
+import { describe, it, vi } from 'vitest';
+import { render, screen, waitFor } from '@utils/customTestSetup';
+import * as customHook from '@features/Posts/hooks/useGetPosts';
+import { Post } from '@models/Post';
+import { QueryObserverIdleResult } from 'react-query';
+import PostsList from './PostsList';
+
+vi.mock('useGetPostId', () => ({
+  postId: 1,
+}));
+
+const mockPost = {
+  id: 10,
+  title: 'title',
+  author: 'author',
+  publish_date: '2022-02-02',
+  slug: 'slug',
+  description: 'desc',
+  content: 'cont',
+};
+
+describe('<PostsList  />', () => {
+  it('should render loading spinner', () => {
+    vi.spyOn(customHook, 'useGetPosts');
+    render(<PostsList />);
+
+    const loadingSpinner = screen.getByTestId('spinner');
+
+    expect(loadingSpinner).toBeInTheDocument();
+  });
+
+  it('should render post list on success', async () => {
+    vi.spyOn(customHook, 'useGetPosts').mockImplementation(
+      () => [mockPost] as unknown as QueryObserverIdleResult<Post[], Error>
+    );
+    render(<PostsList />);
+
+    const postsList = screen.getByTestId('posts-list');
+    const loadingSpinner = screen.queryByTestId('spinner');
+
+    await waitFor(() => {
+      expect(postsList).toBeInTheDocument();
+      expect(loadingSpinner).not.toBeInTheDocument();
+    });
+  });
+});
