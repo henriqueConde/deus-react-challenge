@@ -1,8 +1,8 @@
+import { QueryObserverIdleResult } from 'react-query';
 import { describe, it, vi } from 'vitest';
 import { render, screen, waitFor } from '@utils/customTestSetup';
-import * as customHook from '@features/Posts/hooks/useGetPosts';
 import { Post } from '@models/Post';
-import { QueryObserverIdleResult } from 'react-query';
+import * as customHook from '@features/Posts/hooks/useGetPosts';
 import PostsList from './PostsList';
 
 vi.mock('useGetPostId', () => ({
@@ -22,7 +22,7 @@ const mockPost = {
 describe('<PostsList  />', () => {
   it('should render loading spinner', () => {
     vi.spyOn(customHook, 'useGetPosts');
-    render(<PostsList />);
+    render(<PostsList isGridView={false} />);
 
     const loadingSpinner = screen.getByTestId('spinner');
 
@@ -33,7 +33,7 @@ describe('<PostsList  />', () => {
     vi.spyOn(customHook, 'useGetPosts').mockImplementation(
       () => [mockPost] as unknown as QueryObserverIdleResult<Post[], Error>
     );
-    render(<PostsList />);
+    render(<PostsList isGridView={false} />);
 
     const postsList = screen.getByTestId('posts-list');
     const loadingSpinner = screen.queryByTestId('spinner');

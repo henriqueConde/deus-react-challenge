@@ -9,6 +9,7 @@ export function useGetPostsPage() {
     ['postsPage'],
     ({ pageParam = 1 }) => getPostsPage(pageParam),
     {
+      staleTime: 1000 * 60,
       getNextPageParam: (lastPage) => {
         return lastPage.next ? lastPage.next : undefined;
       },

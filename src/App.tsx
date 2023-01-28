@@ -1,14 +1,17 @@
+import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { Home } from '@pages/Home';
-import Container from '@layouts/Container/Container';
 import { QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { queryClient } from '@api/query-client';
-import { NotFound } from '@pages/NotFound';
-import { SinglePost } from '@pages/SinglePost';
+import Container from '@layouts/Container/Container';
+import { Loading } from '@components/Loading';
 import theme from './styles/theme';
 import GlobalStyles from './styles/global';
+
+const Home = React.lazy(() => import('./pages/Home/Home'));
+const SinglePost = React.lazy(() => import('./pages/SinglePost/SinglePost'));
+const NotFound = React.lazy(() => import('./pages/NotFound/NotFound'));
 
 function App() {
   return (
@@ -16,11 +19,13 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Container>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/posts/:id/:slug" element={<SinglePost />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/posts/:id/:slug" element={<SinglePost />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </Container>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
