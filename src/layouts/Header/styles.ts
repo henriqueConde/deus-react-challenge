@@ -9,12 +9,3 @@ export const Wrapper = styled.header`
 export const LangWrapper = styled.div`
   width: 100px;
 `;
-
-export const Home = styled.div`
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  svg {
-    width: 23px;
-  }
-`;

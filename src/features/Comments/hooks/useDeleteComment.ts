@@ -1,9 +1,9 @@
 import { useMutation } from 'react-query';
-import { postComment } from '@api/comments';
+import { deleteComment } from '@api/comments';
 import { queryClient } from '@api/query-client';
 
-export const useCreateComment = () => {
-  return useMutation(postComment, {
+export const useDeleteComment = () => {
+  return useMutation(deleteComment, {
     onSuccess: () => {
       queryClient.invalidateQueries('comments');
     },

@@ -80,7 +80,7 @@ describe('<SinglePost />', () => {
                 />
               </div>
               <button
-                class="sc-gswNZR cEEpgg"
+                class="sc-gswNZR iFIVnc"
                 type="submit"
               >
                 <span>

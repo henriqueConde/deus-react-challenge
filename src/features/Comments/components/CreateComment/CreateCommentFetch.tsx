@@ -1,9 +1,9 @@
 import { useCreateComment } from '@features/Comments/hooks/useCreateComment';
 import useGetPostId from '@utils/hooks/useGetPostId';
 import { NewCreateCommentOptions } from '@models/NewCreateCommentOptions';
-import { NewCommentData } from '@models/NewCommentData';
 import { CreateCommentData } from '@models/CreateCommentData';
 import { SubmitCommentState } from '@models/SubmitCommentState';
+import { SubmitCreateComment } from '@models/SubmitCreateComment';
 import CreateComment from './CreateComment';
 
 type CreateCommentFetchProps = {
@@ -30,7 +30,7 @@ const CreateCommentFetch = ({
       content: commentData.content as string,
     };
 
-    const newCommentData: NewCommentData = {
+    const newCommentData: SubmitCreateComment = {
       postId: postId as number,
       options: submitComment,
     };

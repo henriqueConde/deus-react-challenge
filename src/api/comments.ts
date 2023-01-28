@@ -1,6 +1,10 @@
 import { CommentAPI } from '@models/Comment';
 import { axios } from './axios';
-import { EditCommentParams, PostCommentParams } from './comments-types';
+import {
+  EditCommentParams,
+  PostCommentParams,
+  DeleteCommentParams,
+} from './comments-types';
 
 export const getComments = async (postId: number) => {
   const { data } = await axios.get<CommentAPI[]>(`/posts/${postId}/comments`);
@@ -13,4 +17,8 @@ export const postComment = ({ postId, options }: PostCommentParams) => {
 
 export const editComment = ({ commentId, options }: EditCommentParams) => {
   return axios.put<CommentAPI>(`/comments/${commentId}`, options);
+};
+
+export const deleteComment = ({ commentId }: DeleteCommentParams) => {
+  return axios.delete(`/comments/${commentId}`);
 };

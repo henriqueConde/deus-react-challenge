@@ -26,19 +26,19 @@ export type CreateCommentFormState = {
 
 function reducer(state: CreateCommentFormState, { type, payload }: Action) {
   switch (type) {
-    case 'changing':
+    case ActionType.IsChanging:
       return {
         ...state,
         values: payload.values,
         fieldError: payload.fieldError,
       };
-    case 'success':
+    case ActionType.Success:
       return {
         ...state,
         values: payload.values,
         fieldError: '',
       };
-    case 'invalid':
+    case ActionType.Error:
       return { ...state, fieldError: payload.fieldError };
     default:
       throw new Error('Unknown action type');

@@ -10,6 +10,7 @@ export type ButtonProps = {
   fullWidth?: boolean;
   disabled?: boolean;
   isSecondary?: boolean;
+  danger?: boolean;
   as?: React.ElementType;
   icon?: JSX.Element;
 } & ButtonTypes;
@@ -20,6 +21,7 @@ const Button = ({
   fullWidth = false,
   disabled = false,
   isSecondary = false,
+  danger = false,
   icon,
   ...props
 }: ButtonProps) => {
@@ -29,6 +31,7 @@ const Button = ({
       disabled={disabled}
       isSecondary={isSecondary}
       fullWidth={fullWidth}
+      danger={danger}
       {...props}
     >
       {icon}

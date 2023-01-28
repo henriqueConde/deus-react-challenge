@@ -4,7 +4,7 @@ import { ButtonProps } from './Button';
 
 export type WrapperProps = Pick<
   ButtonProps,
-  'size' | 'fullWidth' | 'disabled' | 'isSecondary'
+  'size' | 'fullWidth' | 'disabled' | 'isSecondary' | 'danger'
 >;
 
 const wrapperModifiers = {
@@ -34,10 +34,18 @@ const wrapperModifiers = {
       background-color: transparent;
     }
   `,
+  danger: (theme: DefaultTheme) => css`
+    background-color: transparent;
+    color: ${theme.colors.red};
+    border: 1px solid ${theme.colors.red};
+    &:hover {
+      background-color: transparent;
+    }
+  `,
 };
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, disabled, isSecondary }) => css`
+  ${({ theme, size, fullWidth, disabled, isSecondary, danger }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -51,9 +59,14 @@ export const Wrapper = styled.button<WrapperProps>`
     &:hover {
       background: ${darken(0.1, theme.colors.primary)};
     }
+    svg {
+      width: 20px;
+      margin-right: 10px;
+    }
     ${!!size && wrapperModifiers[size](theme)};
     ${fullWidth && wrapperModifiers.fullWidth()};
     ${disabled && wrapperModifiers.disabled()};
     ${isSecondary && wrapperModifiers.secondary(theme)};
+    ${danger && wrapperModifiers.danger(theme)}
   `}
 `;

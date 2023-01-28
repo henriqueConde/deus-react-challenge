@@ -1,9 +1,10 @@
-export type PostCommentParams = {
-  postId: number;
-  options: any;
-};
+import { SubmitCreateComment } from '@models/SubmitCreateComment';
+import { SubmitEditComment } from '@models/SubmitEditComment';
 
-export type EditCommentParams = {
+export type PostCommentParams = SubmitCreateComment;
+
+export type EditCommentParams = SubmitEditComment;
+
+export type DeleteCommentParams = {
   commentId: number;
-  options: any;
 };

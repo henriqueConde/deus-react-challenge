@@ -469,14 +469,6 @@
       "id": 10
     },
     {
-      "postId": 10,
-      "parent_id": null,
-      "date": "2023-01-18T21:57:57.591Z",
-      "user": "Toxa aa",
-      "content": "Natum integre tractatos eu duo!bhg gbfrbf",
-      "id": 11
-    },
-    {
       "parent_id": 11,
       "date": "2023-01-18T20:32:20.420Z",
       "user": "Cin",
@@ -622,14 +614,6 @@
     },
     {
       "postId": 20,
-      "parent_id": null,
-      "date": "2023-01-26T23:24:27.672Z",
-      "user": "Rachel",
-      "content": "This is a comment 2",
-      "id": 30
-    },
-    {
-      "postId": 20,
       "parent_id": 30,
       "date": "2023-01-27T00:03:05.687Z",
       "user": "Aidan",
@@ -645,28 +629,28 @@
       "id": 32
     },
     {
-      "parent_id": null,
-      "date": "2023-01-27T00:13:37.609Z",
-      "user": "dsafasdf",
-      "content": "asdfdasf",
-      "postId": "20",
-      "id": 33
-    },
-    {
-      "parent_id": null,
-      "date": "2023-01-27T00:14:06.506Z",
-      "user": "asdfadsf",
-      "content": "asdfasdf",
+      "parent_id": 33,
+      "date": "2023-01-28T15:49:26.518Z",
+      "user": "Aidan",
+      "content": "This is a reply",
       "postId": "20",
       "id": 34
     },
     {
       "parent_id": null,
-      "date": "2023-01-27T00:14:11.186Z",
-      "user": "reerer",
-      "content": "ddfd",
-      "postId": "20",
+      "date": "2023-01-28T16:40:02.168Z",
+      "user": "Mina Harker",
+      "content": "This is a comment",
+      "postId": "13",
       "id": 35
+    },
+    {
+      "parent_id": 35,
+      "date": "2023-01-28T16:40:12.592Z",
+      "user": "Capheus",
+      "content": "This is a reply",
+      "postId": "13",
+      "id": 36
     }
   ]
 }
