@@ -8,17 +8,17 @@ describe('<SinglePost />', () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="sc-dmctIk hnKyxa"
+          class="sc-ezOQGI eXiqpt"
         >
           <article
-            class="sc-hHTYSt izhDSc"
+            class="sc-gikAfH feYrkk"
             data-testid="comment-wrapper"
           >
             <main
-              class="sc-idXgbr hWpjXw"
+              class="sc-fnGiBr cAZbeo"
             >
               <div
-                class="sc-dIfARi fiUSOL"
+                class="sc-fEXmlR gUgnGS"
                 color="bright"
                 data-testid="spinner"
               />
@@ -31,7 +31,7 @@ describe('<SinglePost />', () => {
               data-testid="create-comment-form"
             >
               <div
-                class="sc-hBxehG hrKgOd"
+                class="sc-ksBlkl kERCOQ"
               >
                 <label
                   class="sc-csuSiG jFxNzx"
@@ -52,23 +52,23 @@ describe('<SinglePost />', () => {
                   />
                 </div>
                 <p
-                  class="sc-ksBlkl hCyjQC"
+                  class="sc-hBxehG fLAAjP"
                 />
               </div>
               <div
                 class="sc-jrcTuL cwTqAf"
               >
                 <label
-                  class="sc-gKPRtg BFpnk"
+                  class="sc-iBYQkv koBNbz"
                   for="name"
                 >
                   Name
                 </label>
                 <div
-                  class="sc-jSUZER iYEWkd"
+                  class="sc-gKPRtg ldhyOx"
                 >
                   <input
-                    class="sc-iBYQkv iJKBfx"
+                    class="sc-ftTHYK jMosbv"
                     id="name"
                     name="name"
                     type="text"
@@ -76,7 +76,7 @@ describe('<SinglePost />', () => {
                   />
                 </div>
                 <p
-                  class="sc-pyfCe jejPhq"
+                  class="sc-hBxehG fLAAjP"
                 />
               </div>
               <button
