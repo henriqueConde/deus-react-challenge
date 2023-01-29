@@ -17,7 +17,7 @@ export const DropdownWrapper = styled.select<WrapperProps>`
     border-color: ${error ? 'red' : theme.colors.lightGray};
     width: 100%;
     &:focus-within {
-      box-shadow: 0 0 0.5rem ${theme.colors.primary};
+      box-shadow: ${theme.boxShadow.withPrimary};
     }
     &:focus-visible {
       outline: none;

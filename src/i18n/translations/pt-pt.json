@@ -3,6 +3,10 @@
         "home.greeting": "Olá, aqui é a página Home",
         "home.main.title": "Os Posts Mais Recentes",
         "post.page.make.comment.label": "Faça um comentário",
+        "post.preview.read.post.btn": "Ler Artigo",
+        "posts.failed.fetch": "Erro ao carregar posts :(",
+        "posts.load.more": "Carregar Mais Posts",
+        "posts.no.more.posts": "Não há mais posts...",
         "commnent.form.reply.btn": "Comentar",
         "commnent.form.cancel.reply.btn": "Cancelar",
         "commnent.form.edit.btn": "Editar",
@@ -11,7 +15,6 @@
         "commnent.form.hide.replies.btn": "Esconder Respostas",
         "commnent.form.name.label": "Nome",
         "commnent.form.submit.btn": "Enviar Comentário",
-        "post.preview.read.post.btn": "Ler Artigo",
         "comment.content.error.required": "Comentário não pode estar vazio",
         "comment.name.error.min.char": "Nome deve ter no mínimo 3 caracteres",
         "comment.name.error.required": "Nome não pode estar vazio"

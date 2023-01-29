@@ -1,5 +1,5 @@
 import { PostPreview } from '@models/PostPreview';
-import { InfiniteData } from 'react-query';
+import { InfiniteData } from '@tanstack/react-query';
 import { Pages } from '@api/posts-types';
 import { flatArrayByDepth } from './flatArrayByDepth';
 

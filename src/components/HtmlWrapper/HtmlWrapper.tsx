@@ -5,8 +5,8 @@ type SanitizeHtmlProps = {
   content: string;
 };
 
-const SanitizeHtml = ({ content }: SanitizeHtmlProps) => (
+const HtmlWrapper = ({ content }: SanitizeHtmlProps) => (
   <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }} />
 );
 
-export default SanitizeHtml;
+export default HtmlWrapper;

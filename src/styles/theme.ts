@@ -17,6 +17,10 @@ export default {
       large: '1.8rem',
     },
   },
+  boxShadow: {
+    default: '7px 6px 8px -4px rgba(110, 110, 110, 0.22)',
+    withPrimary: `0 0 0.5rem #038FC9`,
+  },
   colors: {
     bright: '#FFAFBD',
     primary: '#038FC9',
@@ -26,6 +30,9 @@ export default {
     gray: '#8F8F8F',
     darkGray: '#2E2F42',
     red: '#FF6347',
+    background: {
+      modal: ' rgba(0, 0, 0, 0.5)',
+    },
   },
   spacings: {
     xxsmall: '0.8rem',

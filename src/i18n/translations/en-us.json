@@ -3,6 +3,10 @@
         "home.greeting": "Hi, this is the Home page.",
         "home.main.title": "The Most Recent Posts",
         "post.page.make.comment.label": "Make a Comment",
+        "post.preview.read.post.btn": "Read Article",
+        "posts.failed.fetch": "Failed to fetch posts :(",
+        "posts.load.more": "Load More Posts",
+        "posts.no.more.posts": "There are no more posts...",
         "commnent.form.reply.btn": "Reply",
         "commnent.form.cancel.reply.btn": "Cancel",
         "commnent.form.edit.btn": "Edit",
@@ -11,7 +15,6 @@
         "commnent.form.hide.replies.btn": "Hide Replies",
         "commnent.form.name.label": "Name",
         "commnent.form.submit.btn": "Submit Comment",
-        "post.preview.read.post.btn": "Read Article",
         "comment.content.error.required": "Comment can not be empty",
         "comment.name.error.min.char": "Name needs to have at least 3 characters",
         "comment.name.error.required": "Name is required"

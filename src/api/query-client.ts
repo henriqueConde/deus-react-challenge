@@ -1,7 +1,13 @@
-import { QueryClient } from 'react-query';
-
-const defaultQueryConfig = { staleTime: 0 };
+import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient({
-  defaultOptions: { queries: defaultQueryConfig },
+  defaultOptions: {
+    queries: {
+      networkMode: 'offlineFirst',
+      staleTime: 0,
+    },
+    mutations: {
+      networkMode: 'offlineFirst',
+    },
+  },
 });

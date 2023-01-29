@@ -3,6 +3,7 @@ import styled, { css, DefaultTheme } from 'styled-components';
 import { DynamicInputProps } from './DynamicInput';
 
 type WrapperProps = Pick<DynamicInputProps, 'error'>;
+type LabelProps = Pick<DynamicInputProps, 'labelSize'>;
 
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
@@ -13,17 +14,26 @@ export const InputWrapper = styled.div`
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
     &:focus-within {
-      box-shadow: 0 0 0.5rem ${theme.colors.primary};
+      box-shadow: ${theme.boxShadow.withPrimary};
     }
   `}
 `;
 
-export const Label = styled.label`
-  ${({ theme }) => css`
+const labelModifiers = {
+  small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.small};
+  `,
+  large: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.large};
+  `,
+};
+
+export const Label = styled.label<LabelProps>`
+  ${({ theme, labelSize }) => css`
     display: inline-block;
     color: ${theme.colors.black};
     cursor: pointer;
+    ${labelSize && labelModifiers[labelSize](theme)}
   `}
 `;
 
@@ -50,13 +60,6 @@ export const Icon = styled.div`
     & > svg {
       width: 100%;
     }
-  `}
-`;
-
-export const Error = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.red};
-    font-size: ${theme.font.sizes.xsmall};
   `}
 `;
 

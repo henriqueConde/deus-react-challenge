@@ -12,7 +12,7 @@ export const TextAreaWrapper = styled.div`
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
     &:focus-within {
-      box-shadow: 0 0 0.5rem ${theme.colors.primary};
+      box-shadow: ${theme.boxShadow.withPrimary};
     }
   `}
 `;
@@ -49,13 +49,6 @@ export const Icon = styled.div`
     & > svg {
       width: 100%;
     }
-  `}
-`;
-
-export const Error = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.red};
-    font-size: ${theme.font.sizes.xsmall};
   `}
 `;
 

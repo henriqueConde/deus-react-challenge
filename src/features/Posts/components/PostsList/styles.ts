@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
+import { Button } from '@components/Button';
 import { PostsListProps } from './PostsList';
 
 export type WrapperProps = Pick<PostsListProps, 'isGridView'>;
@@ -26,5 +27,23 @@ export const Wrapper = styled.div<WrapperProps>`
 
     ${isGridView && wrapperModifiers.grid()};
     ${!isGridView && wrapperModifiers.list()}
+  `}
+`;
+
+export const LoadMoreBtn = styled(Button)`
+  ${({ theme }) => css`
+    width: 30%;
+    margin: 0 auto;
+    margin-top: ${theme.spacings.xxlarge};
+    ${media.lessThan('medium')`
+      width: 100%;
+    `}
+  `}
+`;
+
+export const NoMorePosts = styled.div`
+  ${({ theme }) => css`
+    margin: 0 auto;
+    margin-top: ${theme.spacings.xxlarge};
   `}
 `;

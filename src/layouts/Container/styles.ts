@@ -17,9 +17,7 @@ export const AppWrapper = styled.div`
   justify-content: flex-start;
   min-height: 100vh;
   margin: auto 0;
-  -webkit-box-shadow: 2px 3px 38px 0px rgba(94, 95, 117, 0.57);
-  -moz-box-shadow: 2px 3px 38px 0px rgba(94, 95, 117, 0.57);
-  box-shadow: 2px 3px 38px 0px rgba(94, 95, 117, 0.57);
+
   ${({ theme }) => css`
     width: ${theme.grid.container};
     background-color: ${theme.colors.white};
@@ -27,6 +25,12 @@ export const AppWrapper = styled.div`
     border-radius: ${theme.border.radius};
     padding: 50px 88px;
     border-radius: 1rem;
+    -webkit-box-shadow: ${theme.boxShadow.default};
+    -moz-box-shadow: ${theme.boxShadow.default};
+    box-shadow: ${theme.boxShadow.default};
+    ${media.lessThan('medium')`
+    padding: 50px 25px;
+  `}
   `}
 
   footer {

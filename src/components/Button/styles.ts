@@ -70,3 +70,11 @@ export const Wrapper = styled.button<WrapperProps>`
     ${danger && wrapperModifiers.danger(theme)}
   `}
 `;
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    position: absolute;
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
+  `}
+`;

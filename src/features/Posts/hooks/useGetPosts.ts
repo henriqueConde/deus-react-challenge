@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { Post } from '@models/Post';
 import { getPosts } from '@api/posts';
 import { sortArrayByDate } from '@utils/sortArrayByDate';

@@ -1,4 +1,4 @@
-import { QueryObserverIdleResult } from 'react-query';
+import { QueryObserverIdleResult } from '@tanstack/react-query';
 import { describe, it, vi } from 'vitest';
 import { render, screen, waitFor } from '@utils/customTestSetup';
 import { Post } from '@models/Post';

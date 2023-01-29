@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import * as S from './styles';
+import { ErrorMessage } from '@components/ErrorMessage';
 
 export type TextAreaProps = {
   onInputChange?: (value: string) => void;
@@ -24,6 +25,7 @@ const TextArea = ({
     const newValue = e.currentTarget.value;
     setTextAreaValue(newValue);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     !!onInputChange && onInputChange(newValue);
   };
 
@@ -32,7 +34,7 @@ const TextArea = ({
   }, [textAreaValue, value]);
 
   return (
-    <S.Wrapper>
+    <S.Wrapper error={error}>
       {!!label && <S.Label htmlFor={name}>{t(label)}</S.Label>}
       <S.TextAreaWrapper>
         <S.TextArea
@@ -45,8 +47,7 @@ const TextArea = ({
           value={textAreaValue}
         />
       </S.TextAreaWrapper>
-
-      <S.Error>{t(error as string) || ''}</S.Error>
+      <ErrorMessage>{t(error as string) || ''}</ErrorMessage>
     </S.Wrapper>
   );
 };

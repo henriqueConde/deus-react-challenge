@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { CommentAPI } from '@models/Comment';
 import { getComments } from '@api/comments';
 import { sortArrayByDate } from '@utils/sortArrayByDate';

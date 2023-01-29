@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from 'react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { getPostsPage } from '@api/posts';
 import { sortArrayByDate } from '@utils/sortArrayByDate';
 import { mapToPostPreview } from '@utils/mappers/mapToPostPreview';

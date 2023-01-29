@@ -10,10 +10,10 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     border: 1px solid ${theme.colors.lightGray};
     border-radius: ${theme.border.radius};
+    -webkit-box-shadow: ${theme.boxShadow.default};
+    -moz-box-shadow: ${theme.boxShadow.default};
+    box-shadow: ${theme.boxShadow.default};
   `};
-  -webkit-box-shadow: 7px 6px 8px -4px rgba(110, 110, 110, 0.22);
-  -moz-box-shadow: 7px 6px 8px -4px rgba(110, 110, 110, 0.22);
-  box-shadow: 7px 6px 8px -4px rgba(110, 110, 110, 0.22);
 `;
 
 export const CommentData = styled.p`

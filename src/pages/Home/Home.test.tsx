@@ -1,7 +1,7 @@
 import { describe, it, vi } from 'vitest';
 import { render, screen, waitFor } from '@utils/customTestSetup';
 import * as customHook from '@features/Posts/hooks/useGetPosts';
-import { QueryObserverIdleResult } from 'react-query';
+import { QueryObserverIdleResult } from '@tanstack/react-query';
 import { Post } from '@models/Post';
 import Home from './Home';
 

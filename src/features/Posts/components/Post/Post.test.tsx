@@ -2,7 +2,7 @@ import { describe, it, vi } from 'vitest';
 import { render, waitFor, screen } from '@utils/customTestSetup';
 import * as customHook from '@features/Posts/hooks/useGetPost';
 import { Post as PostAPI } from '@models/Post';
-import { QueryObserverIdleResult } from 'react-query';
+import { QueryObserverIdleResult } from '@tanstack/react-query';
 import Post from './Post';
 
 vi.mock('useGetPostId', () => ({

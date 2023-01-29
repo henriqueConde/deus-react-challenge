@@ -1,58 +1,79 @@
-import { InfiniteData } from 'react-query';
 import { Loading } from '@components/Loading';
-import { useGetPostsPage } from '@features/Posts/hooks/useGetPostsPage';
-import { Button } from '@components/Button';
 import { MetaInfo } from '@components/MetaInfo';
-import { getPostPreviewArrayFromData } from '@utils/getPostPreviewArrayFromData';
-import { Pages } from '@api/posts-types';
+import { ErrorMessage } from '@components/ErrorMessage';
+import { useTranslation } from 'react-i18next';
+import { SearchBar } from '@layouts/SearchBar';
 import { PostPreview } from '../PostPreview';
 import * as S from './styles';
+import usePostsList from '../../hooks/usePostsList';
+
+const TRANSLATIONS = {
+  FAILED_TO_FETCH: 'posts.failed.fetch',
+  LOAD_MORE: 'posts.load.more',
+  NO_MORE: 'posts.no.more.posts',
+};
 
 export type PostsListProps = {
   isGridView: boolean;
 };
 
 const PostsList = ({ isGridView }: PostsListProps) => {
+  const { t } = useTranslation();
+
   const {
+    value,
+    handleChange,
+    searchActive,
+    loadingSearchResults,
+    postsToDisplay,
+    loading,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
-    data,
-    isLoading,
     isError,
-  } = useGetPostsPage();
-
-  const posts =
-    data && getPostPreviewArrayFromData(data as unknown as InfiniteData<Pages>);
-  const displayLoadMoreBtn = hasNextPage && !isFetchingNextPage;
+    displayLoadMoreBtn,
+  } = usePostsList();
 
   return (
     <>
-      {isError && <div>failed to fetch posts</div>}
-      {isLoading && <Loading />}
-      <S.Wrapper data-testid="posts-list" isGridView={isGridView}>
-        {posts &&
-          posts.map((post) => {
-            return (
-              <PostPreview
-                key={post.postId}
-                userName={post.userName}
-                title={post.title}
-                publishDate={post.publishDate}
-                description={post.description}
-                slug={post.slug}
-                postId={post.postId}
-              />
-            );
-          })}
-      </S.Wrapper>
-      {isFetchingNextPage && <Loading />}
-      {displayLoadMoreBtn && (
-        <Button size="small" onClick={() => fetchNextPage()}>
-          Load More Posts
-        </Button>
+      <SearchBar value={value} handleChange={handleChange} />
+      {isError && (
+        <ErrorMessage size="large">
+          {t(TRANSLATIONS.FAILED_TO_FETCH)}
+        </ErrorMessage>
       )}
-      {!hasNextPage && <MetaInfo strong>There are no more posts...</MetaInfo>}
+      {loading && <Loading />}
+      {!loadingSearchResults && (
+        <S.Wrapper data-testid="posts-list" isGridView={isGridView}>
+          {postsToDisplay &&
+            postsToDisplay.map((post) => {
+              return (
+                <PostPreview
+                  key={post.postId}
+                  userName={post.userName}
+                  title={post.title}
+                  publishDate={post.publishDate}
+                  description={post.description}
+                  slug={post.slug}
+                  postId={post.postId}
+                />
+              );
+            })}
+        </S.Wrapper>
+      )}
+      {isFetchingNextPage && <Loading />}
+      {displayLoadMoreBtn && !searchActive && (
+        <S.LoadMoreBtn isSecondary onClick={() => fetchNextPage()}>
+          {t(TRANSLATIONS.LOAD_MORE)}
+        </S.LoadMoreBtn>
+      )}
+      {!hasNextPage && !searchActive && (
+        <S.NoMorePosts>
+          <MetaInfo size="large" strong>
+            {t(TRANSLATIONS.NO_MORE)}
+          </MetaInfo>
+        </S.NoMorePosts>
+      )}
     </>
   );
 };

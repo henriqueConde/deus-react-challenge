@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { PostsList } from '@features/Posts/components/PostsList';
 import { PostsView } from '@components/PostsView';
+import SearchBar from '@layouts/SearchBar/SearchBar';
 import useLayoutView from './hooks/useLayoutView';
 import * as S from './styles';
 

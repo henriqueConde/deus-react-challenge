@@ -1,5 +1,6 @@
 import { useState, InputHTMLAttributes, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ErrorMessage } from '@components/ErrorMessage';
 import * as S from './styles';
 
 export type DynamicInputProps = {
@@ -7,8 +8,9 @@ export type DynamicInputProps = {
   icon?: React.ReactNode;
   error?: string;
   label?: string;
+  labelSize?: 'small' | 'large';
   disabled?: boolean;
-  type: string;
+  type?: string;
   value?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
@@ -18,6 +20,7 @@ const DynamicInput = ({
   name,
   label,
   type = 'text',
+  labelSize = 'small',
   disabled = false,
   onInputChange,
   value = '',
@@ -40,7 +43,11 @@ const DynamicInput = ({
 
   return (
     <S.Wrapper error={error}>
-      {!!label && <S.Label htmlFor={name}>{t(label)}</S.Label>}
+      {!!label && (
+        <S.Label labelSize={labelSize} htmlFor={name}>
+          {t(label)}
+        </S.Label>
+      )}
       <S.InputWrapper>
         {!!icon && <S.Icon>{icon}</S.Icon>}
         <S.Input
@@ -53,7 +60,7 @@ const DynamicInput = ({
           {...props}
         />
       </S.InputWrapper>
-      <S.Error>{t(error as string) || ''}</S.Error>
+      <ErrorMessage>{t(error as string) || ''}</ErrorMessage>
     </S.Wrapper>
   );
 };
