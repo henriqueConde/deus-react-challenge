@@ -8,12 +8,14 @@ const Post = () => {
   const { postId } = useGetPostId();
   const { data: post, isInitialLoading } = useGetPost(postId as number);
   return (
-    <S.Wrapper data-testid="comment-wrapper">
+    <S.Wrapper data-testid="post-wrapper" data-cy="post-wrapper">
       {isInitialLoading && <Loading />}
       {!!post && (
         <>
           <h2>{post.title}</h2>
-          <HtmlWrapper content={post.content} />
+          <div data-cy="post-content">
+            <HtmlWrapper content={post.content} />
+          </div>
         </>
       )}
     </S.Wrapper>

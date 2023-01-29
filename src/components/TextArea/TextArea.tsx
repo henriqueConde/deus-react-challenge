@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import * as S from './styles';
 import { ErrorMessage } from '@components/ErrorMessage';
+import * as S from './styles';
 
 export type TextAreaProps = {
   onInputChange?: (value: string) => void;
@@ -9,6 +9,7 @@ export type TextAreaProps = {
   label?: string;
   name: string;
   error?: string;
+  testId?: string;
 };
 
 const TextArea = ({
@@ -17,6 +18,7 @@ const TextArea = ({
   label = '',
   name,
   value = '',
+  testId = ''
 }: TextAreaProps) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const { t } = useTranslation();
@@ -39,6 +41,7 @@ const TextArea = ({
       <S.TextAreaWrapper>
         <S.TextArea
           data-testid="textarea"
+          data-cy={testId}
           name={name}
           id={name}
           rows={4}

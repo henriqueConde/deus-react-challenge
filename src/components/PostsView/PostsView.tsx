@@ -20,7 +20,10 @@ const PostsView = ({
 }: PostsViewProps) => {
   const { t } = useTranslation();
   return (
-    <S.Wrapper data-testid={isGridView ? 'grid-view' : 'list-view'}>
+    <S.Wrapper
+      data-testid={isGridView ? 'grid-view' : 'list-view'}
+      data-cy={isGridView ? 'grid-view' : 'list-view'}
+    >
       {!isGridView ? (
         <S.IconButton
           size="small"

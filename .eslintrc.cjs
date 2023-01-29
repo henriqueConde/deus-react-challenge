@@ -32,4 +32,5 @@ module.exports = {
     'react/require-default-props': 0,
     '@typescript-eslint/no-unused-expressions': 0
   },
+  "ignorePatterns": ["cypress.config.ts"],
 };

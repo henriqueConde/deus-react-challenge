@@ -26,7 +26,7 @@ const PostPreview = ({
   const { t } = useTranslation();
 
   const content = (
-    <>
+    <div data-cy="post-preview">
       <MetaInfo>
         {userName} - {postDate}
       </MetaInfo>
@@ -39,7 +39,7 @@ const PostPreview = ({
           </Button>
         </Anchor>
       </S.AnchorWrapper>
-    </>
+    </div>
   );
 
   return <S.Wrapper>{content}</S.Wrapper>;

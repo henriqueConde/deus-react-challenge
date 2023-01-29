@@ -25,7 +25,6 @@ const usePostsSearchBar = () => {
         posts.filter(
           (post) =>
             post.title.toLowerCase().includes(lowerValue) ||
-            post.content.toLowerCase().includes(lowerValue) ||
             post.description.toLowerCase().includes(lowerValue)
         );
 

@@ -33,7 +33,7 @@ describe('<Post />', () => {
     );
     render(<Post />);
 
-    const post = screen.getByTestId('comment-wrapper');
+    const post = screen.getByTestId('post-wrapper');
 
     await waitFor(() => {
       expect(post).toBeInTheDocument();

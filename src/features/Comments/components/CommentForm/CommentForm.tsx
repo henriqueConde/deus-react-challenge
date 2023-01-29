@@ -25,13 +25,14 @@ const CommentForm = ({
   const { t } = useTranslation();
   return (
     <FormWrapper>
-      <form onSubmit={handleSubmit} data-testid={testId}>
+      <form onSubmit={handleSubmit} data-testid={testId} data-cy={testId}>
         <TextArea
           name="content"
           label="post.page.make.comment.label"
           value={values.content}
           onInputChange={(value: string) => handleInput('content', value)}
           error={fieldError?.content}
+          testId={`${testId}-textarea`}
         />
         <DynamicInput
           name="name"
@@ -46,6 +47,7 @@ const CommentForm = ({
           size="large"
           fullWidth
           disabled={isSubmittingComment}
+          data-cy="comment-submit-btn"
         >
           {t('commnent.form.submit.btn')}
         </Button>

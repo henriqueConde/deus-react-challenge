@@ -683,6 +683,14 @@
       "content": "dfasdf",
       "postId": "20",
       "id": 43
+    },
+    {
+      "postId": 20,
+      "parent_id": null,
+      "date": "2023-01-29T18:04:44.670Z",
+      "user": "Noah",
+      "content": "This is a comment",
+      "id": 44
     }
   ]
 }

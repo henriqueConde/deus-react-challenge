@@ -19,11 +19,19 @@ const Modal = ({ show = false, close, title, children }: ModalProps) => {
             fallbackFocus: '#modal-wrapper',
           }}
         >
-          <S.Wrapper id="modal-wrapper" data-testid="modal-wrapper">
+          <S.Wrapper
+            id="modal-wrapper"
+            data-testid="modal-wrapper"
+            data-cy="modal-wrapper"
+          >
             <S.Modal>
               <S.Header>
                 <h3>{title}</h3>
-                <S.CloseIcon onClick={close} data-testid="close-modal-icon" />
+                <S.CloseIcon
+                  onClick={close}
+                  data-testid="close-modal-icon"
+                  data-cy="close-modal-icon"
+                />
               </S.Header>
               <S.Body>{children}</S.Body>
             </S.Modal>

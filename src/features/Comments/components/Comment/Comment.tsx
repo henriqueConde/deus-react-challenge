@@ -26,7 +26,7 @@ const Comment = ({ user, content, date, id, data, parentId }: CommentProps) => {
   });
   const { result: commentDate } = formatDate(date, 'DD/MM/YYYY');
   return (
-    <S.Wrapper>
+    <S.Wrapper data-cy="comment-wrapper">
       <S.CommentHeader>
         <MetaInfo>
           {user} - {commentDate}

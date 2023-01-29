@@ -6,9 +6,11 @@ import * as S from './styles';
 
 const Header = () => {
   return (
-    <S.Wrapper data-testid="header">
+    <S.Wrapper data-testid="header" data-cy="header">
       <Anchor path="/" color="black">
-        <Info icon={<Home />}>Home</Info>
+        <Info icon={<Home />}>
+          <h3>Home</h3>
+        </Info>
       </Anchor>
       <S.LangWrapper>
         <LanguageDropdown />

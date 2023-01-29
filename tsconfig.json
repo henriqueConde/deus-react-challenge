@@ -26,9 +26,8 @@
       "@api/*": ["api/*"]
     },
     },
-    "exclude": ["**/*.mjs"],
+    "exclude": [ "cypress", "cypress.config.ts", "**/*.cy.ts", "**/*.mjs"],
     "include": ["vite.config.ts", ".eslintrc.cjs", "**/*.ts", "**/*.tsx", "styled-components.d.ts"],
     "references": [{ "path": "./tsconfig.node.json" }],
-    
   }
   

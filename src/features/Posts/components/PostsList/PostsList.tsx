@@ -44,7 +44,11 @@ const PostsList = ({ isGridView }: PostsListProps) => {
       )}
       {loading && <Loading />}
       {!loadingSearchResults && (
-        <S.Wrapper data-testid="posts-list" isGridView={isGridView}>
+        <S.Wrapper
+          data-testid="posts-list"
+          data-cy="posts-list"
+          isGridView={isGridView}
+        >
           {postsToDisplay &&
             postsToDisplay.map((post) => {
               return (

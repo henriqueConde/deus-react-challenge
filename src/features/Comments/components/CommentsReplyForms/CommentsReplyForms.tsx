@@ -30,6 +30,7 @@ const CommentsReplyForms = ({
       {showCommentForm && (
         <CreateCommentFetch
           data-testid="create-comment-form"
+          data-cy="create-comment-form"
           parentId={id}
           handleHideCommentForm={handleHideCommentForm}
         />
@@ -37,6 +38,7 @@ const CommentsReplyForms = ({
       {showEditCommentForm && (
         <EditCommentFetch
           data-testid="edit-comment-form"
+          data-cy="edit-comment-form"
           initValues={initValues}
           id={id}
           parentId={parentId}

@@ -54,6 +54,7 @@ const Dropdown = ({
         id={name}
         disabled={isDisabled}
         data-testid={testId}
+        data-cy={testId}
       >
         {defaultValue && (
           <S.Option value={value} disabled>
