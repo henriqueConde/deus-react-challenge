@@ -1,4 +1,4 @@
-import { QueryObserverIdleResult } from '@tanstack/react-query';
+import { QueryObserverResult } from '@tanstack/react-query';
 import { describe, it, vi } from 'vitest';
 import { render, screen, waitFor } from '@utils/customTestSetup';
 import { Post } from '@models/Post';
@@ -31,7 +31,7 @@ describe('<PostsList  />', () => {
 
   it('should render post list on success', async () => {
     vi.spyOn(customHook, 'useGetPosts').mockImplementation(
-      () => [mockPost] as unknown as QueryObserverIdleResult<Post[], Error>
+      () => [mockPost] as unknown as QueryObserverResult<Post[], Error>
     );
     render(<PostsList isGridView={false} />);
 

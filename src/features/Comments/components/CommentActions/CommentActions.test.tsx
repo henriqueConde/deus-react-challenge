@@ -1,10 +1,16 @@
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 import { render, screen } from '@utils/customTestSetup';
 import CommentActions from './CommentActions';
 
+const mockProps = {
+  hasReplies: true,
+  handleShowReplies: vi.fn(),
+  showReplies: false,
+};
+
 describe('<CommentActions />', () => {
   it('should render actions buttons', async () => {
-    render(<CommentActions hasReplies />);
+    render(<CommentActions {...mockProps} />);
 
     const showRepliesBtn = screen.getByRole('button', {
       name: /Show replies/i,
@@ -24,7 +30,7 @@ describe('<CommentActions />', () => {
   });
 
   it('should not render show replies btn if there no replies', () => {
-    render(<CommentActions hasReplies={false} />);
+    render(<CommentActions {...mockProps} hasReplies={false} />);
     const showRepliesBtn = screen.queryByRole('button', {
       name: /Show replies/i,
     });

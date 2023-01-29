@@ -1,12 +1,11 @@
 import { describe, it, vi } from 'vitest';
 import { render, screen } from '@utils/customTestSetup';
-import React from 'react';
 import PostsView from './PostsView';
 
-const mockSetIsGridView = vi.fn();
 const mockProps = {
   isGridView: false,
-  setIsGridView: mockSetIsGridView,
+  handleGridView: vi.fn(),
+  handleListView: vi.fn(),
 };
 
 describe('<PostsView />', () => {

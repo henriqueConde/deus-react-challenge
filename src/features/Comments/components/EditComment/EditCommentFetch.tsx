@@ -3,6 +3,7 @@ import { useEditComment } from '@features/Comments/hooks/useEditComment';
 import { SubmitCommentState } from '@models/SubmitCommentState';
 import { CreateCommentData } from '@models/CreateCommentData';
 import { SubmitEditComment } from '@models/SubmitEditComment';
+import { useTranslation } from 'react-i18next';
 import EditComment from './EditComment';
 
 type EditCommentFetchProps = {
@@ -20,10 +21,11 @@ const EditCommentFetch = ({
 }: EditCommentFetchProps) => {
   const { postId } = useGetPostId();
   const { mutate, isLoading, data, isError } = useEditComment();
+  const { t } = useTranslation();
   const submitCommentState: SubmitCommentState = {
     isLoading,
     data,
-    error: isError ? 'Failed to edit comment' : '',
+    error: isError ? t('comment.edit.fail.message') : '',
   };
   const handleSubmitData = (commentData: CreateCommentData) => {
     const submitComment: SubmitEditComment = {

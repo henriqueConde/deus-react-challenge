@@ -2,7 +2,7 @@ import { Loading } from '@components/Loading';
 import { MetaInfo } from '@components/MetaInfo';
 import { ErrorMessage } from '@components/ErrorMessage';
 import { useTranslation } from 'react-i18next';
-import { SearchBar } from '@layouts/SearchBar';
+import { PostsSearchBar } from '@layouts/PostsSearchBar';
 import { PostPreview } from '../PostPreview';
 import * as S from './styles';
 import usePostsList from '../../hooks/usePostsList';
@@ -36,7 +36,7 @@ const PostsList = ({ isGridView }: PostsListProps) => {
 
   return (
     <>
-      <SearchBar value={value} handleChange={handleChange} />
+      <PostsSearchBar value={value} handleChange={handleChange} />
       {isError && (
         <ErrorMessage size="large">
           {t(TRANSLATIONS.FAILED_TO_FETCH)}

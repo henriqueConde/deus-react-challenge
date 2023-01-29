@@ -1,7 +1,7 @@
 import { describe, it, vi } from 'vitest';
 import { render, screen, waitFor } from '@utils/customTestSetup';
 import * as customHook from '@features/Posts/hooks/useGetPosts';
-import { QueryObserverIdleResult } from '@tanstack/react-query';
+import { QueryObserverResult } from '@tanstack/react-query';
 import { Post } from '@models/Post';
 import Home from './Home';
 
@@ -26,7 +26,7 @@ describe('<Home />', () => {
 
   it('should render psots lists and main title on success', async () => {
     vi.spyOn(customHook, 'useGetPosts').mockImplementation(
-      () => [mockPost] as unknown as QueryObserverIdleResult<Post[], Error>
+      () => [mockPost] as unknown as QueryObserverResult<Post[], Error>
     );
     render(<Home />);
 

@@ -15,7 +15,10 @@ const contextValues = CommentActionsStateContext.initialState;
 
 describe('<CommentsReplyForms />', () => {
   it('should render create comment form properly', () => {
-    vi.spyOn(CommentActionsStateContext, 'useCommentActionsStateContext').mockImplementation(() => ({
+    vi.spyOn(
+      CommentActionsStateContext,
+      'useCommentActionsStateContext'
+    ).mockImplementation(() => ({
       ...contextValues,
       showCommentForm: true,
     }));
@@ -40,7 +43,10 @@ describe('<CommentsReplyForms />', () => {
   });
 
   it('should render edit comment form properly', () => {
-    vi.spyOn(CommentActionsStateContext, 'useCommentActionsStateContext').mockImplementation(() => ({
+    vi.spyOn(
+      CommentActionsStateContext,
+      'useCommentActionsStateContext'
+    ).mockImplementation(() => ({
       ...contextValues,
       showEditCommentForm: true,
     }));
@@ -65,7 +71,10 @@ describe('<CommentsReplyForms />', () => {
   });
 
   it('should not render comment actions form if not allowed', () => {
-    vi.spyOn(CommentActionsStateContext, 'useCommentActionsStateContext').mockImplementation(() => ({
+    vi.spyOn(
+      CommentActionsStateContext,
+      'useCommentActionsStateContext'
+    ).mockImplementation(() => ({
       ...contextValues,
     }));
     render(

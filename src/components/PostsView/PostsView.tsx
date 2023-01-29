@@ -1,4 +1,4 @@
-import { GridView, List } from '@styled-icons/material-outlined';
+import { List } from '@styled-icons/material-outlined';
 import { useTranslation } from 'react-i18next';
 import * as S from './styles';
 
@@ -20,18 +20,11 @@ const PostsView = ({
 }: PostsViewProps) => {
   const { t } = useTranslation();
   return (
-    <S.Wrapper
-      data-testid={isGridView ? 'grid-view' : 'list-view'}
-      data-cy={isGridView ? 'grid-view' : 'list-view'}
-    >
+    <S.Wrapper data-testid={isGridView ? 'grid-view' : 'list-view'}>
       {!isGridView ? (
         <S.IconButton
           size="small"
-          icon={
-            <GridView
-              style={{ width: '16px', height: '14px', marginBottom: '2px' }}
-            />
-          }
+          icon={<S.GridIcon />}
           onClick={handleGridView}
         >
           {t(TRANSLATIONS.GRID)}

@@ -27,6 +27,9 @@
         "comment.delete.modal.confirm.btn": "Confirmar",
         "comment.delete.modal.title": "Atenção",
         "layout.view.grid": "Grid",
-        "layout.view.list": "Lista"
+        "layout.view.list": "Lista",
+        "comment.edit.fail.message": "Erro ao editar comentário.",
+        "comment.create.fail.message": "Erro ao criar comentário.",
+        "home.link.text": "Home"
     }
 }

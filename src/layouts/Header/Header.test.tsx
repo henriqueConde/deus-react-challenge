@@ -1,4 +1,4 @@
-import { describe, it, vi } from 'vitest';
+import { describe, it } from 'vitest';
 import { render, screen } from '@utils/customTestSetup';
 import Header from './Header';
 

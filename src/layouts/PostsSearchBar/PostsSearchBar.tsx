@@ -8,12 +8,12 @@ const TRANSLATIONS = {
   LABEL: 'posts.search.bar.label',
 };
 
-type SearchBarProps = {
+type PostsSearchBarProps = {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SearchBar = ({ value, handleChange }: SearchBarProps) => {
+const PostsSearchBar = ({ value, handleChange }: PostsSearchBarProps) => {
   const { t } = useTranslation();
   return (
     <S.Wrapper>
@@ -29,4 +29,4 @@ const SearchBar = ({ value, handleChange }: SearchBarProps) => {
   );
 };
 
-export default SearchBar;
+export default PostsSearchBar;

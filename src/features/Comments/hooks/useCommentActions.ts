@@ -1,15 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useDeleteComment } from './useDeleteComment';
 
 const useCommentActions = () => {
   const [showCommentForm, setShowCommentForm] = useState(false);
   const [showEditCommentForm, setShowEditCommentForm] = useState(false);
-
-  const { mutate } = useDeleteComment();
-
-  const handleDeleteComment = (commentId: number) => {
-    mutate({ commentId });
-  };
 
   const handleHideCommentForm = useCallback(() => {
     setShowCommentForm(false);
@@ -46,7 +39,6 @@ const useCommentActions = () => {
     handleHideEditCommentForm,
     showCommentForm,
     showEditCommentForm,
-    handleDeleteComment,
   };
 };
 

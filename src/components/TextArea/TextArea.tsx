@@ -18,7 +18,7 @@ const TextArea = ({
   label = '',
   name,
   value = '',
-  testId = ''
+  testId = '',
 }: TextAreaProps) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const { t } = useTranslation();

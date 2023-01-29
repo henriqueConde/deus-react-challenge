@@ -389,12 +389,12 @@
   ],
   "comments": [
     {
-      "id": 1,
       "postId": 1,
       "parent_id": null,
-      "user": "Amelia",
-      "date": "2016-02-23",
-      "content": "Nulla in nulla vel nisi faucibus scelerisque. Donec quis tortor."
+      "date": "2023-01-29T18:55:48.964Z",
+      "user": "Ameliaa",
+      "content": "Nulla in nulla vel nisi faucibus sceleri",
+      "id": 1
     },
     {
       "id": 2,
@@ -421,14 +421,6 @@
       "content": "Mauris malesuada a tellus at mollis. Nam eu eros ipsum."
     },
     {
-      "postId": 1,
-      "parent_id": null,
-      "date": "2023-01-18T20:14:18.842Z",
-      "user": "Shella",
-      "content": "asdasdf",
-      "id": 5
-    },
-    {
       "id": 6,
       "postId": 2,
       "parent_id": null,
@@ -451,14 +443,6 @@
       "user": "rtrt",
       "content": "rtetew",
       "id": 8
-    },
-    {
-      "postId": 1,
-      "parent_id": 1,
-      "date": "2023-01-18T20:13:46.922Z",
-      "user": "dfdfdfdf",
-      "content": "editado",
-      "id": 9
     },
     {
       "parent_id": 5,
