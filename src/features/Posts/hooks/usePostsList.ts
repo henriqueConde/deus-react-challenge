@@ -24,6 +24,7 @@ const usePostsList = () => {
     searchPosts,
     searchActive,
     loadingSearchResults,
+    noResults,
   } = usePostsSearchBar();
 
   const postsToDisplay = searchPosts || posts;
@@ -41,6 +42,7 @@ const usePostsList = () => {
     isFetchingNextPage,
     isError,
     displayLoadMoreBtn,
+    noResults,
   };
 };
 

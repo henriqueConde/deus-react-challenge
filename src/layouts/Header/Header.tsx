@@ -1,7 +1,5 @@
 import { LanguageDropdown } from '@layouts/LanguageDropdown';
-import { Home } from '@styled-icons/material-outlined';
 import { Anchor } from '@components/Anchor';
-import { Info } from '@components/Info';
 import { useTranslation } from 'react-i18next';
 import * as S from './styles';
 
@@ -10,9 +8,7 @@ const Header = () => {
   return (
     <S.Wrapper data-testid="header" data-cy="header">
       <Anchor path="/" color="black">
-        <Info icon={<Home />}>
-          <h3>{t('home.link.text')}</h3>
-        </Info>
+        <S.Home>{t('home.link.text')}</S.Home>
       </Anchor>
       <S.LangWrapper>
         <LanguageDropdown />

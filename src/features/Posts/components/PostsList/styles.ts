@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import { Button } from '@components/Button';
-import { PostsListProps } from './PostsList';
 
-export type WrapperProps = Pick<PostsListProps, 'isGridView'>;
+export type WrapperProps = {
+  isGridView: boolean;
+};
 
 const wrapperModifiers = {
   grid: () => css`
@@ -45,5 +46,17 @@ export const NoMorePosts = styled.div`
   ${({ theme }) => css`
     margin: 0 auto;
     margin-top: ${theme.spacings.xxlarge};
+  `}
+`;
+
+export const HeaderWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    button {
+      padding: ${theme.spacings.small} ${theme.spacings.xsmall};
+    }
   `}
 `;

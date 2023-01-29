@@ -1,4 +1,4 @@
-import { describe, it, vi } from 'vitest';
+import { describe, it } from 'vitest';
 import { fireEvent, render, screen } from '@utils/customTestSetup';
 import LanguageDropdown from './LanguageDropdown';
 

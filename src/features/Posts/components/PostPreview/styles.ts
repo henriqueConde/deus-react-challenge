@@ -1,3 +1,4 @@
+import { MetaInfo } from '@components/MetaInfo';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 
@@ -7,7 +8,6 @@ export const Wrapper = styled.article`
   position: relative;
   ${({ theme }) => css`
     border: 1px solid ${theme.colors.lightGray};
-    border-radius: ${theme.border.radius};
     -webkit-box-shadow: ${theme.boxShadow.default};
     -moz-box-shadow: ${theme.boxShadow.default};
     box-shadow: ${theme.boxShadow.default};
@@ -38,5 +38,11 @@ export const Title = styled.h3`
     ${media.lessThan('small')`
     font-size: ${theme.font.sizes.medium};
 `}
+  `}
+`;
+
+export const AuthorDate = styled.div`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacings.small};
   `}
 `;

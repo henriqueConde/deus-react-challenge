@@ -12,6 +12,11 @@ const wrapperModifiers = {
     height: 3rem;
     font-size: ${theme.font.sizes.xsmall};
   `,
+  medium: (theme: DefaultTheme) => css`
+    height: 3rem;
+    padding: ${theme.spacings.xsmall} ${theme.spacings.small};
+    font-size: ${theme.font.sizes.xsmall};
+  `,
   large: (theme: DefaultTheme) => css`
     height: 5rem;
     font-size: ${theme.font.sizes.medium};
@@ -53,7 +58,6 @@ export const Wrapper = styled.button<WrapperProps>`
     color: ${theme.colors.white};
     border: 0;
     cursor: pointer;
-    border-radius: ${theme.border.radius};
     padding: ${theme.spacings.xxsmall};
     text-decoration: none;
     &:hover {

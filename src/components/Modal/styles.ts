@@ -36,7 +36,6 @@ export const Modal = styled.div`
     width: 50vw;
     height: auto;
     padding: 5rem;
-    border-radius: ${theme.border.radius};
     background-color: ${theme.colors.white};
     box-shadow: ${theme.boxShadow.default};
     ${media.lessThan('medium')`

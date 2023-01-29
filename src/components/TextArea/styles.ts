@@ -14,6 +14,7 @@ export const TextAreaWrapper = styled.div`
     &:focus-within {
       box-shadow: ${theme.boxShadow.withPrimary};
     }
+    margin-bottom: ${theme.spacings.small};
   `}
 `;
 
@@ -23,6 +24,7 @@ export const Label = styled.label`
     display: inline-block;
     color: ${theme.colors.black};
     cursor: pointer;
+    margin-bottom: ${theme.spacings.xxsmall};
   `}
 `;
 

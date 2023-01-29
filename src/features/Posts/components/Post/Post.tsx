@@ -12,7 +12,7 @@ const Post = () => {
       {isInitialLoading && <Loading />}
       {!!post && (
         <>
-          <h2>{post.title}</h2>
+          <S.Title>{post.title}</S.Title>
           <div data-cy="post-content">
             <HtmlWrapper content={post.content} />
           </div>

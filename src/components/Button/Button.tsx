@@ -6,7 +6,7 @@ type ButtonTypes =
   | ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = {
-  size?: 'small' | 'large';
+  size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   disabled?: boolean;
   isSecondary?: boolean;

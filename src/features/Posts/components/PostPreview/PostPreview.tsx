@@ -27,14 +27,16 @@ const PostPreview = ({
 
   const content = (
     <div data-cy="post-preview">
-      <MetaInfo>
-        {userName} - {postDate}
-      </MetaInfo>
+      <S.AuthorDate>
+        <MetaInfo>
+          {userName} - {postDate}
+        </MetaInfo>
+      </S.AuthorDate>
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
       <S.AnchorWrapper>
         <Anchor path={`posts/${postId}/${slug}`}>
-          <Button size="small" tabIndex={-1}>
+          <Button size="medium" tabIndex={-1}>
             {t('post.preview.read.post.btn')}
           </Button>
         </Anchor>

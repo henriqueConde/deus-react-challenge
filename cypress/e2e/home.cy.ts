@@ -34,4 +34,11 @@ describe('Home Page', () => {
     cy.wait(2000);
     cy.getByDataCy('post-preview').contains('Natum');
   });
+
+  it('should show no results message when no entries are found', () => {
+    cy.visit('/');
+    cy.findByRole('textbox', { name: /Search posts/i }).type('asdf');
+    cy.wait(2000);
+    cy.findByText(/no results.../i);
+  });
 });

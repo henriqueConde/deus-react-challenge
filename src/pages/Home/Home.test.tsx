@@ -24,7 +24,7 @@ describe('<Home />', () => {
     expect(loadingSpinner).toBeInTheDocument();
   });
 
-  it('should render psots lists and main title on success', async () => {
+  it('should render posts lists and main title on success', async () => {
     vi.spyOn(customHook, 'useGetPosts').mockImplementation(
       () => [mockPost] as unknown as QueryObserverResult<Post[], Error>
     );

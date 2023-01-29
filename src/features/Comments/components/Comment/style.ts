@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   gap: 20px;
   ${({ theme }) => css`
     border: 1px solid ${theme.colors.lightGray};
-    border-radius: ${theme.border.radius};
     -webkit-box-shadow: ${theme.boxShadow.default};
     -moz-box-shadow: ${theme.boxShadow.default};
     box-shadow: ${theme.boxShadow.default};

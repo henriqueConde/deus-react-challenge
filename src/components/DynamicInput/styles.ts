@@ -33,6 +33,7 @@ export const Label = styled.label<LabelProps>`
     display: inline-block;
     color: ${theme.colors.black};
     cursor: pointer;
+    margin-bottom: ${theme.spacings.xxsmall};
     ${labelSize && labelModifiers[labelSize](theme)}
   `}
 `;

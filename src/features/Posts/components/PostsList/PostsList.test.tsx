@@ -22,7 +22,7 @@ const mockPost = {
 describe('<PostsList  />', () => {
   it('should render loading spinner', () => {
     vi.spyOn(customHook, 'useGetPosts');
-    render(<PostsList isGridView={false} />);
+    render(<PostsList />);
 
     const loadingSpinner = screen.getByTestId('spinner');
 
@@ -33,7 +33,7 @@ describe('<PostsList  />', () => {
     vi.spyOn(customHook, 'useGetPosts').mockImplementation(
       () => [mockPost] as unknown as QueryObserverResult<Post[], Error>
     );
-    render(<PostsList isGridView={false} />);
+    render(<PostsList />);
 
     const postsList = screen.getByTestId('posts-list');
     const loadingSpinner = screen.queryByTestId('spinner');

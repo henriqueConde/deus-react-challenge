@@ -1,11 +1,11 @@
 import * as S from './styles';
 
 export type LoadingProps = {
-  color?: 'black' | 'bright';
+  color?: 'black' | 'bright' | 'purple';
   position?: 'center' | 'left' | 'right';
 };
 
-const Loading = ({ color = 'bright', position = 'center' }: LoadingProps) => {
+const Loading = ({ color = 'purple', position = 'center' }: LoadingProps) => {
   return (
     <S.Wrapper>
       <S.Loading

@@ -10,6 +10,7 @@ const usePostsSearchBar = () => {
   const [searchActive, setSearchActive] = useState(false);
   const [searchPosts, setSearchPosts] = useState<PostPreview[] | undefined>();
   const [loadingSearchResults, setLoadingSearchResults] = useState(false);
+  const [noResults, setNoResults] = useState(false);
   const { data: posts } = useGetPosts();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,12 +54,21 @@ const usePostsSearchBar = () => {
     }
   }, [searchActive]);
 
+  useEffect(() => {
+    if (searchPosts && searchPosts.length === 0) {
+      setNoResults(true);
+    } else {
+      setNoResults(false);
+    }
+  }, [searchPosts]);
+
   return {
     value,
     handleChange,
     searchPosts,
     searchActive,
     loadingSearchResults,
+    noResults,
   };
 };
 

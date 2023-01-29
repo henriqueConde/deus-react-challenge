@@ -22,7 +22,6 @@ export const AppWrapper = styled.div`
     width: ${theme.grid.container};
     background-color: ${theme.colors.white};
     padding: ${theme.spacings.medium};
-    border-radius: ${theme.border.radius};
     padding: 50px 88px;
     border-radius: 1rem;
     -webkit-box-shadow: ${theme.boxShadow.default};

@@ -6,7 +6,7 @@ describe('<Header />', () => {
   it('should render correctly', () => {
     render(<Header />);
 
-    const home = screen.getByText('Home');
+    const home = screen.getByText(/home/i);
     const languageDropdown = screen.getByText('en');
 
     expect(home).toBeInTheDocument();

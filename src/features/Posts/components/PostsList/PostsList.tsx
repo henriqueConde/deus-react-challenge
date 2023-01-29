@@ -3,9 +3,12 @@ import { MetaInfo } from '@components/MetaInfo';
 import { ErrorMessage } from '@components/ErrorMessage';
 import { useTranslation } from 'react-i18next';
 import { PostsSearchBar } from '@layouts/PostsSearchBar';
+import useLayoutView from '@pages/Home/hooks/useLayoutView';
+import { PostsView } from '@components/PostsView';
+import { NoResults } from '@components/NoResults';
 import { PostPreview } from '../PostPreview';
-import * as S from './styles';
 import usePostsList from '../../hooks/usePostsList';
+import * as S from './styles';
 
 const TRANSLATIONS = {
   FAILED_TO_FETCH: 'posts.failed.fetch',
@@ -13,11 +16,7 @@ const TRANSLATIONS = {
   NO_MORE: 'posts.no.more.posts',
 };
 
-export type PostsListProps = {
-  isGridView: boolean;
-};
-
-const PostsList = ({ isGridView }: PostsListProps) => {
+const PostsList = () => {
   const { t } = useTranslation();
 
   const {
@@ -32,17 +31,28 @@ const PostsList = ({ isGridView }: PostsListProps) => {
     isFetchingNextPage,
     isError,
     displayLoadMoreBtn,
+    noResults,
   } = usePostsList();
+
+  const { isGridView, handleGridView, handleListView } = useLayoutView();
 
   return (
     <>
-      <PostsSearchBar value={value} handleChange={handleChange} />
+      <S.HeaderWrapper>
+        <PostsSearchBar value={value} handleChange={handleChange} />
+        <PostsView
+          isGridView={isGridView}
+          handleGridView={handleGridView}
+          handleListView={handleListView}
+        />
+      </S.HeaderWrapper>
       {isError && (
         <ErrorMessage size="large">
           {t(TRANSLATIONS.FAILED_TO_FETCH)}
         </ErrorMessage>
       )}
       {loading && <Loading />}
+      {noResults && !loading && <NoResults />}
       {!loadingSearchResults && (
         <S.Wrapper
           data-testid="posts-list"
