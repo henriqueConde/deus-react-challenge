@@ -2,7 +2,7 @@ import { describe, it, vi } from 'vitest';
 import { render, waitFor, screen } from '@utils/customTestSetup';
 import * as customHook from '@features/Posts/hooks/useGetPost';
 import { Post as PostAPI } from '@models/Post';
-import { QueryObserverIdleResult } from '@tanstack/react-query';
+import { QueryObserverResult } from '@tanstack/react-query';
 import Post from './Post';
 
 vi.mock('useGetPostId', () => ({
@@ -29,7 +29,7 @@ describe('<Post />', () => {
 
   it('should render article on success', async () => {
     vi.spyOn(customHook, 'useGetPost').mockImplementation(
-      () => mockPost as unknown as QueryObserverIdleResult<PostAPI, Error>
+      () => mockPost as unknown as QueryObserverResult<PostAPI, Error>
     );
     render(<Post />);
 

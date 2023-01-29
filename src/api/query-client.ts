@@ -4,8 +4,7 @@ export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       networkMode: 'offlineFirst',
-      staleTime: Infinity,
-      cacheTime: Infinity,
+      staleTime: 0,
     },
     mutations: {
       networkMode: 'offlineFirst',
