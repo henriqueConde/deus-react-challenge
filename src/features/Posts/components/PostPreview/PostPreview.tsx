@@ -1,4 +1,3 @@
-import React, { MutableRefObject, RefObject } from 'react';
 import { MetaInfo } from '@components/MetaInfo';
 import formatDate from '@utils/formatDate';
 import { Button } from '@components/Button';
@@ -15,34 +14,35 @@ export type PostPreviewProps = {
   postId: number;
 };
 
-type ElementRef = React.Ref<HTMLElement> | null;
+const PostPreview = ({
+  userName,
+  publishDate,
+  title,
+  description,
+  slug,
+  postId,
+}: PostPreviewProps) => {
+  const { result: postDate } = formatDate(publishDate, 'DD/MM/YYYY');
+  const { t } = useTranslation();
 
-const PostPreview = React.forwardRef<ElementRef, PostPreviewProps>(
-  ({ userName, publishDate, title, description, slug, postId }, ref) => {
-    const { result: postDate } = formatDate(publishDate, 'DD/MM/YYYY');
-    const { t } = useTranslation();
+  const content = (
+    <>
+      <MetaInfo>
+        {userName} - {postDate}
+      </MetaInfo>
+      <S.Title>{title}</S.Title>
+      <S.Description>{description}</S.Description>
+      <S.AnchorWrapper>
+        <Anchor path={`posts/${postId}/${slug}`}>
+          <Button size="small" tabIndex={-1}>
+            {t('post.preview.read.post.btn')}
+          </Button>
+        </Anchor>
+      </S.AnchorWrapper>
+    </>
+  );
 
-    const content = (
-      <>
-        <MetaInfo>
-          {userName} - {postDate}
-        </MetaInfo>
-        <S.Title>{title}</S.Title>
-        <S.Description>{description}</S.Description>
-        <S.AnchorWrapper>
-          <Anchor path={`posts/${postId}/${slug}`}>
-            <Button size="small">{t('post.preview.read.post.btn')}</Button>
-          </Anchor>
-        </S.AnchorWrapper>
-      </>
-    );
-    if (ref) {
-      return <S.Wrapper ref={ref}>{content}</S.Wrapper>;
-    }
-    return <S.Wrapper>{content}</S.Wrapper>;
-  }
-);
-
-PostPreview.displayName = 'PostPreview';
+  return <S.Wrapper>{content}</S.Wrapper>;
+};
 
 export default PostPreview;

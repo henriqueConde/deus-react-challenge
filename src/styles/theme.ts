@@ -43,4 +43,8 @@ export default {
     xlarge: '4.8rem',
     xxlarge: '5.6rem',
   },
+  zIndex: {
+    default: 0,
+    layer1: 1,
+  },
 } as const;

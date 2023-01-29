@@ -17,6 +17,16 @@
         "commnent.form.submit.btn": "Enviar Comentário",
         "comment.content.error.required": "Comentário não pode estar vazio",
         "comment.name.error.min.char": "Nome deve ter no mínimo 3 caracteres",
-        "comment.name.error.required": "Nome não pode estar vazio"
+        "comment.name.error.required": "Nome não pode estar vazio",
+        "posts.search.bar.label": "Buscar Posts",
+        "comment.delete.btn": "Deletar",
+        "comment.delete.error.message": "Comentário não pode ser deletado",
+        "comment.delete.modal.not.reversible": "Você está prestes a deletar esse comentário. Essa ação <0>NÂO</0> é reversível",
+        "comment.delete.modal.whish.proceed": "Você deseja continuar?",
+        "comment.delete.modal.cancel.btn": "Cancelar",
+        "comment.delete.modal.confirm.btn": "Confirmar",
+        "comment.delete.modal.title": "Atenção",
+        "layout.view.grid": "Grid",
+        "layout.view.list": "Lista"
     }
 }

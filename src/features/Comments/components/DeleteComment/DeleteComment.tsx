@@ -1,32 +1,38 @@
-import { useEffect } from 'react';
+/* eslint-disable react/jsx-key */
 import { Button } from '@components/Button';
 import { Delete } from '@styled-icons/material-outlined';
-import { useDeleteComment } from '@features/Comments/hooks/useDeleteComment';
 import { Loading } from '@components/Loading';
 import { Modal } from '@components/Modal';
-import useModal from '@components/Modal/hooks/useModal';
 import { ErrorMessage } from '@components/ErrorMessage';
+import { Trans, useTranslation } from 'react-i18next';
+import useHandleDeleteComment from '@features/Comments/hooks/useHandleDeleteComment';
 import * as S from './styles';
+
+const TRANSLATIONS = {
+  DELETE_BTN: 'comment.delete.btn',
+  DELETE_ERROR_MESSAGE: 'comment.delete.error.message',
+  NOT_REVERSIBLE: 'comment.delete.modal.not.reversible',
+  PROCEED: 'comment.delete.modal.whish.proceed',
+  CANCEL: 'comment.delete.modal.cancel.btn',
+  CONFIRM: 'comment.delete.modal.confirm.btn',
+  WARN_TITLE: 'comment.delete.modal.title',
+};
 
 type DeleteCommentProps = {
   commentId: number;
 };
 
 const DeleteComment = ({ commentId }: DeleteCommentProps) => {
-  const { mutate, isError, isLoading, reset } = useDeleteComment();
-  const { handleCloseModal, modal, handleOpenModal } = useModal();
-  const handleSubmit = () => {
-    mutate({ commentId });
-    handleCloseModal();
-  };
+  const {
+    handleSubmit,
+    modal,
+    handleOpenModal,
+    isLoading,
+    isError,
+    handleCloseModal,
+  } = useHandleDeleteComment(commentId);
 
-  useEffect(() => {
-    if (isError) {
-      setTimeout(() => {
-        reset();
-      }, 3000);
-    }
-  }, [isError, reset]);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -39,30 +45,36 @@ const DeleteComment = ({ commentId }: DeleteCommentProps) => {
             danger
             disabled={isError}
           >
-            Delete
+            {t(TRANSLATIONS.DELETE_BTN)}
           </Button>
         ) : (
           !isError && <Loading />
         )}
         {isError && (
           <S.Error>
-            <ErrorMessage>Comment could not be deleted</ErrorMessage>
+            <ErrorMessage>{t(TRANSLATIONS.DELETE_ERROR_MESSAGE)}</ErrorMessage>
           </S.Error>
         )}
       </S.DeleteWrapper>
-      <Modal close={handleCloseModal} show={modal} title="Warning">
+      <Modal
+        close={handleCloseModal}
+        show={modal}
+        title={t(TRANSLATIONS.WARN_TITLE)}
+      >
         <S.ModalContent>
           <p>
-            You are about to delete this comment. This action is{' '}
-            <strong>NOT</strong> reversible
+            <Trans
+              i18nKey={TRANSLATIONS.NOT_REVERSIBLE}
+              components={[<strong />]}
+            />
           </p>
-          <p>Do you wish to proceed?</p>
+          <p>{t(TRANSLATIONS.PROCEED)}</p>
         </S.ModalContent>
         <S.ModalActions>
           <Button isSecondary onClick={handleCloseModal}>
-            Cancel
+            {t(TRANSLATIONS.CANCEL)}
           </Button>
-          <Button onClick={handleSubmit}>Confirm</Button>
+          <Button onClick={handleSubmit}>{t(TRANSLATIONS.CONFIRM)}</Button>
         </S.ModalActions>
       </Modal>
     </>

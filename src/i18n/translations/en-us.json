@@ -17,6 +17,16 @@
         "commnent.form.submit.btn": "Submit Comment",
         "comment.content.error.required": "Comment can not be empty",
         "comment.name.error.min.char": "Name needs to have at least 3 characters",
-        "comment.name.error.required": "Name is required"
+        "comment.name.error.required": "Name is required",
+        "posts.search.bar.label": "Search Posts",
+        "comment.delete.btn": "Delete",
+        "comment.delete.error.message": "Comment could not be deleted.",
+        "comment.delete.modal.not.reversible": "You are about to delete this comment. This action is <0>NOT</0> reversible",
+        "comment.delete.modal.whish.proceed": "Do you wish to proceed?",
+        "comment.delete.modal.cancel.btn": "Cancel",
+        "comment.delete.modal.confirm.btn": "Confirm",
+        "comment.delete.modal.title": "Warning",
+        "layout.view.grid": "Grid",
+        "layout.view.list": "List"
     }
 }
