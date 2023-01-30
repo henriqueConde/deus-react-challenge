@@ -30,6 +30,7 @@
         "layout.view.list": "List",
         "comment.edit.fail.message": "Failed to edit comment.",
         "comment.create.fail.message": "Failed to create comment.",
-        "home.link.text": "HOME"
+        "home.link.text": "HOME",
+        "posts.search.no.results": "No results..."
     }
 }

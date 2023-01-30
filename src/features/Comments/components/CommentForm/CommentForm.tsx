@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormWrapper } from '@components/Form/Form';
+import { FormWrapper } from '@components/FormWrapper/FormWrapper';
 import { TextArea } from '@components/TextArea';
 import { DynamicInput } from '@components/DynamicInput';
 import { Button } from '@components/Button';
