@@ -669,20 +669,36 @@
       "id": 43
     },
     {
-      "postId": 20,
-      "parent_id": null,
-      "date": "2023-01-29T18:04:44.670Z",
-      "user": "Noah",
-      "content": "This is a comment",
-      "id": 44
-    },
-    {
       "parent_id": 44,
       "date": "2023-01-29T22:04:27.918Z",
       "user": "John",
       "content": "This is a reply",
       "postId": "20",
       "id": 45
+    },
+    {
+      "parent_id": null,
+      "date": "2023-01-30T08:20:51.002Z",
+      "user": "aidan",
+      "content": "this is a comment",
+      "postId": "20",
+      "id": 46
+    },
+    {
+      "parent_id": null,
+      "date": "2023-01-30T08:21:02.520Z",
+      "user": "rachel",
+      "content": "yet another comment",
+      "postId": "20",
+      "id": 47
+    },
+    {
+      "parent_id": 46,
+      "date": "2023-01-30T08:21:17.096Z",
+      "user": "noah",
+      "content": "wht's up?",
+      "postId": "20",
+      "id": 48
     }
   ]
 }

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -29,5 +30,11 @@ export const MainTitle = styled.h2`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.huge};
     font-weight: ${theme.font.normal};
+    ${media.lessThan('medium')`
+    font-size: ${theme.font.sizes.xxlarge};
+`}
+    ${media.lessThan('small')`
+  font-size: ${theme.font.sizes.xlarge};
+  `}
   `}
 `;

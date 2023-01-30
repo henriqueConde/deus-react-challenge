@@ -13,7 +13,7 @@ export default {
       medium: '1.6rem',
       large: '1.8rem',
       xlarge: '2rem',
-      xxlarge: '2.2rem',
+      xxlarge: '3rem',
       huge: '5rem',
     },
   },
